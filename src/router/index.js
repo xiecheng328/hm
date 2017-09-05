@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Test from '@/components/Test'
 import Search from '@/components/Search'
 import List from '@/components/List'
+import Detail from '@/components/Detail'
 
 Vue.use(Router)
 
@@ -15,11 +15,6 @@ export default new Router({
       component: Hello
     },
     {
-      path: '/test',
-      name: 'Test',
-      component: Test
-    },
-    {
       path: '/search',
       name: 'Search',
       component: Search
@@ -28,6 +23,16 @@ export default new Router({
       path: '/list/:keyword',
       name: 'List',
       component: List
+    },
+    {
+        path: '/list',
+        name: 'List',
+        component: List
+    },
+    {
+        path: '/detail/:productId',
+        name: 'Detail',
+        component: Detail
     }
   ]
 })
