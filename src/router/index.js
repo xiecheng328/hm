@@ -8,31 +8,31 @@ import Detail from '@/components/Detail'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Hello',
-      component: Hello
-    },
-    {
-      path: '/search',
-      name: 'Search',
-      component: Search
-    },
-    {
-      path: '/list/:keyword',
-      name: 'List',
-      component: List
-    },
-    {
-        path: '/list',
-        name: 'List',
-        component: List
-    },
-    {
-        path: '/detail/:productId',
-        name: 'Detail',
-        component: Detail
-    }
-  ]
+    routes: [
+        /*{
+         path: '/',
+         name: 'Hello',
+         component: Hello
+         },*/
+        /*{
+         path: '/',
+         name: 'Search',
+         component: Search
+         },*/
+        {
+            path: '/list/:keyword',
+            name: 'List',
+            component: List
+        },
+        {
+            path: '/',
+            name: 'List',
+            component: List
+        },
+        {
+            path: '/detail/:productId',
+            name: 'Detail',
+            component: Detail
+        }
+    ]
 })

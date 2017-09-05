@@ -11,23 +11,21 @@ const state = {
 
 //定义动作 事件处理方法
 const mutations = {
-  setProductList(state, status){
-      state.productlist = status;
-  }
+    setProductList(state, status){
+        state.productlist = status;
+    }
 }
 
 //对外的事件方法
 const actions = {
-    setProductList:({commit},status)=>commit('setProductList',status)
+        setProductList: ({commit}, status) = > commit('setProductList', status)
 }
 
-const getters = {
-
-}
+const getters = {}
 
 export default new Vuex.Store({
-  state,
-  mutations,
-  actions,
-  getters
+    state,
+    mutations,
+    actions,
+    getters
 })

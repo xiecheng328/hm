@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <h1>{{this.$route.params.productId}}</h1>
-  </div>
+    <div>
+        <h1>{{this.$route.params.productId}}</h1>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'detail',
-  data () {
-    return {
-
+    export default {
+        name: 'detail',
+        data () {
+            return {}
+        }
     }
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
