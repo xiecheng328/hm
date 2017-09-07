@@ -1,6 +1,6 @@
 <template>
     <div class="product-container">
-        <div v-for="product in this.$store.state.productlist" class="col-md-3 col-sm-4 col-xs-5 product"
+        <div v-for="product in this.$store.state.productlist" class="col-md-3 col-sm-4 col-xs-6 product"
              @click="productClick(product.productId)">
             <img :src="product.imgSrc" alt="" class="product-img">
             <div class="product-introduce">

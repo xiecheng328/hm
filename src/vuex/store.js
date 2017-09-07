@@ -18,7 +18,7 @@ const mutations = {
 
 //对外的事件方法
 const actions = {
-        setProductList: ({commit}, status) = > commit('setProductList', status)
+        setProductList: ({commit}, status) => commit('setProductList', status)
 }
 
 const getters = {}
