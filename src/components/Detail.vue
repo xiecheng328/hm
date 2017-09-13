@@ -3,7 +3,7 @@
         <h1>{{this.$route.params.productId}}</h1>
         <div class="wrapper">
             <div class="detail">
-                <div class="detail-pic">
+                <div class="detail-pic clearfix">
                     <div class="detail-img">
                         <div class="detail-imgzoom">
                             <img src="https://img.alicdn.com/bao/uploaded/i1/TB1CfWfRpXXXXXoaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"
@@ -70,10 +70,45 @@
                         </div>
                         <div class="detail-num">
                             <span class="detail-item">数量</span>
+                            <input type="number" min="0" value="1">
+                        </div>
+                        <div class="detail-btns">
+                            <div class="detail-btn promptly">立即购买</div>
+                            <div class="detail-btn carts">加入购物车</div>
                         </div>
                     </div>
 
 
+                </div>
+                <div class="detail-evaluate">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="javascript:;">累计评价(4178)</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-panel fade in active classify-panel">
+                            <div class="classify-score">
+                                <h4>与描述相符</h4>
+                                <strong>4.7</strong>
+                            </div>
+                            <ul class="classify clearfix">
+                                <li v-for="(classify,index) in classifyList" @click="classifyHandler(index)" v-bind:class="{ active: isActive==index}">{{classify}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="evaluate-list">
+                        <li>
+                            <div class="evaluate-buyer">
+                                物流的速度很快，我一个小县城，昨天下的货，今天就到了。椅子安装非常方便，我一个人差不多十分钟就能按完成安装。椅子非常漂亮，价格非常实惠，只要98块钱，值的推荐购买。椅子的质量需要时间来鉴定，我先用着，会追加评价的。
+                            </div>
+                            <div class="evaluate-img">
+
+                            </div>
+                            <div class="evaluate-seller">
+                                解释：多么焦急的等待就是为了看到现在的结果，亲的评价对小店来说是多么重要，它是对小店服务的肯定，更是对小店工作的默默支持，它不仅激发了小店追求更高标准的潜力，也是对小店最大的报酬，让小店感觉到一切的付出都是那么的值得，感谢亲的支持，相信小店会做的更好，因为有亲。也希望亲时刻记得有小店这样的一位期待者在期待亲的再次光临
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
             <div class="guess">
@@ -88,7 +123,17 @@
     export default {
         name: 'detail',
         data () {
-            return {}
+            return {
+                isActive: -1,
+                classifyList: ["质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)"]
+            }
+        },
+        mounted(){
+        },
+        methods: {
+            classifyHandler(i){
+                this.isActive = i;
+            }
         }
     }
 </script>
@@ -269,5 +314,100 @@
 
     .detail-num {
         padding-left: 20px;
+        margin-top: 20px;
+    }
+
+    .detail-num input {
+        margin-left: 10px;
+        outline: none;
+        text-indent: 5px;
+    }
+
+    .detail-btns {
+        width: 380px;
+        margin: 20px auto;
+    }
+
+    .detail-btns .detail-btn {
+        width: 180px;
+        height: 40px;
+        border: 1px solid #FF0036;
+        text-align: center;
+        line-height: 40px;
+        float: left;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .detail-btns .promptly {
+        background-color: #ffeded;
+        color: #FF0036;
+        margin-right: 20px;
+    }
+
+    .detail-btns .carts {
+        background-color: #ff0036;
+        color: #fff;
+
+    }
+
+    .detail-evaluate {
+        margin-top: 30px;
+    }
+.classify{
+    margin: 10px 0;
+}
+    .classify li {
+        border: 1px solid #ffd7dd;
+        color: #ff0036;
+        margin: 0 6px;
+        padding: 1px 10px;
+        float: left;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        cursor: pointer;
+        -webkit-box-shadow: 2px 2px 1px #f2f2f2;
+        -moz-box-shadow: 2px 2px 1px #f2f2f2;
+        -ms-box-shadow: 2px 2px 1px #f2f2f2;
+        -o-box-shadow: 2px 2px 1px #f2f2f2;
+        box-shadow: 2px 2px 1px #f2f2f2;
+    }
+
+    .classify li:hover,  .classify .active{
+        background: #ffe2e2;
+        border-color: #ff0036;
+    }
+
+    .classify-panel{
+        height: 70px;
+        border: 1px solid #c8c8c8;
+        padding: 10px 0;
+    }
+    .classify-score{
+        width: 75px;
+        height: 63px;
+        padding: 0 20px;
+        border-right: 1px dotted #ddd;
+        text-align: center;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        -o-box-sizing: content-box;
+        -ms-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    .classify-score h4{
+        color: #404040;
+        font-size: 12px;
+        font-weight: 100;
+        margin-top: 0;
+        width: 100%;
+    }
+    .classify-score strong{
+        color: #f60;
+        font-family: arial;
+        font-size: 32px;
+        line-height: 32px;
+        margin: 0 2px;
     }
 </style>
