@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{this.$route.params.productId}}</h1>
+        <!--<h1>{{this.$route.params.productId}}</h1>-->
         <div class="wrapper">
             <div class="detail">
                 <div class="detail-pic clearfix">
@@ -91,42 +91,40 @@
                                 <strong>4.7</strong>
                             </div>
                             <ul class="classify clearfix">
-                                <li v-for="(classify,index) in classifyList" @click="classifyHandler(index)" v-bind:class="{ active: isActive==index}">{{classify}}</li>
+                                <li v-for="(classify,index) in classifyList" @click="classifyHandler(index)"
+                                    v-bind:class="{ active: isActive==index}">{{classify}}
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <ul class="evaluate-list">
-                        <li>
-                            <div class="evaluate-buyer">
-                                物流的速度很快，我一个小县城，昨天下的货，今天就到了。椅子安装非常方便，我一个人差不多十分钟就能按完成安装。椅子非常漂亮，价格非常实惠，只要98块钱，值的推荐购买。椅子的质量需要时间来鉴定，我先用着，会追加评价的。
-                            </div>
-                            <div class="evaluate-img">
-
-                            </div>
-                            <div class="evaluate-seller">
-                                解释：多么焦急的等待就是为了看到现在的结果，亲的评价对小店来说是多么重要，它是对小店服务的肯定，更是对小店工作的默默支持，它不仅激发了小店追求更高标准的潜力，也是对小店最大的报酬，让小店感觉到一切的付出都是那么的值得，感谢亲的支持，相信小店会做的更好，因为有亲。也希望亲时刻记得有小店这样的一位期待者在期待亲的再次光临
-                            </div>
-                        </li>
-
+                        <evaluate></evaluate>
+                        <evaluate></evaluate>
+                        <evaluate></evaluate>
                     </ul>
                 </div>
             </div>
-            <div class="guess">
+            <!--<div class="guess">
                 guess
-            </div>
+            </div>-->
         </div>
 
     </div>
 </template>
 
 <script>
+    import Evaluate from './Evaluate'
+
     export default {
         name: 'detail',
         data () {
             return {
                 isActive: -1,
-                classifyList: ["质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)"]
+                classifyList: ["质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)", "质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)"]
             }
+        },
+        components: {
+            Evaluate
         },
         mounted(){
         },
@@ -154,6 +152,10 @@
     .wrapper {
         width: 1190px;
         margin: 0 auto;
+    }
+
+    .float-left {
+        float: left;
     }
 
     .detail {
@@ -354,13 +356,17 @@
     .detail-evaluate {
         margin-top: 30px;
     }
-.classify{
-    margin: 10px 0;
-}
+
+    .classify {
+        margin: 5px 0;
+        float: left;
+        width: 870px;
+    }
+
     .classify li {
         border: 1px solid #ffd7dd;
         color: #ff0036;
-        margin: 0 6px;
+        margin: 2px 6px;
         padding: 1px 10px;
         float: left;
         -webkit-border-radius: 2px;
@@ -374,17 +380,18 @@
         box-shadow: 2px 2px 1px #f2f2f2;
     }
 
-    .classify li:hover,  .classify .active{
+    .classify li:hover, .classify .active {
         background: #ffe2e2;
         border-color: #ff0036;
     }
 
-    .classify-panel{
+    .classify-panel {
         height: 70px;
         border: 1px solid #c8c8c8;
-        padding: 10px 0;
+        padding: 2px 0;
     }
-    .classify-score{
+
+    .classify-score {
         width: 75px;
         height: 63px;
         padding: 0 20px;
@@ -395,19 +402,26 @@
         -o-box-sizing: content-box;
         -ms-box-sizing: content-box;
         box-sizing: content-box;
+        float: left;
     }
-    .classify-score h4{
+
+    .classify-score h4 {
         color: #404040;
         font-size: 12px;
         font-weight: 100;
-        margin-top: 0;
+        margin-top: 5px;
         width: 100%;
     }
-    .classify-score strong{
+
+    .classify-score strong {
         color: #f60;
         font-family: arial;
         font-size: 32px;
         line-height: 32px;
         margin: 0 2px;
+    }
+
+    .evaluate-list {
+        padding: 0;
     }
 </style>
