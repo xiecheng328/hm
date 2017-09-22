@@ -2,7 +2,6 @@
     <div>
         <!--<h1>{{this.$route.params.productId}}</h1>-->
         <div class="wrapper">
-            test git
             <search></search>
             <div class="detail">
                 <div class="detail-pic clearfix">
