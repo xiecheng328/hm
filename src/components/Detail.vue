@@ -2,33 +2,18 @@
     <div>
         <!--<h1>{{this.$route.params.productId}}</h1>-->
         <div class="wrapper">
+            test git
+            <search></search>
             <div class="detail">
                 <div class="detail-pic clearfix">
                     <div class="detail-img">
                         <div class="detail-imgzoom">
-                            <img src="https://img.alicdn.com/bao/uploaded/i1/TB1CfWfRpXXXXXoaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"
+                            <img :src="bigImgSrc"
                                  alt="">
                         </div>
                         <ul class="detail-thumb">
-                            <li class="selected">
-                                <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
-                                     alt="">
-                            </li>
-                            <li>
-                                <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
-                                     alt="">
-                            </li>
-                            <li>
-                                <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
-                                     alt="">
-                            </li>
-                            <li>
-                                <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
-                                     alt="">
-                            </li>
-                            <li>
-                                <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
-                                     alt="">
+                            <li v-for="(thumb, index) in thumbList" :class="{selected:isThumbSelected==index}" @click="thumbSelectHandler(index)" @mouseover="thumbSelectHandler(index)">
+                                <img :src="thumb" alt="">
                             </li>
                         </ul>
                     </div>
@@ -77,8 +62,6 @@
                             <div class="detail-btn carts">加入购物车</div>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="detail-evaluate">
                     <ul class="nav nav-tabs">
@@ -114,23 +97,33 @@
 
 <script>
     import Evaluate from './Evaluate'
+    import Search from './Search'
+
 
     export default {
         name: 'detail',
         data () {
             return {
+                bigImgSrc : 'https://img.alicdn.com/bao/uploaded/i1/TB1CfWfRpXXXXXoaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg',
                 isActive: -1,
-                classifyList: ["质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)", "质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)"]
+                classifyList: ["质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)", "质量好(92)", "态度不错(48)", "很便宜(47)", "快递不凑(34)", "性价比高(7)"],
+                thumbList : ['https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg', 'https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg', 'https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg', 'https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg'],
+                isThumbSelected: 0
             }
         },
         components: {
-            Evaluate
+            Evaluate,
+            Search
         },
         mounted(){
         },
         methods: {
             classifyHandler(i){
                 this.isActive = i;
+            },
+            thumbSelectHandler(i){
+                this.isThumbSelected= i;
+                this.bigImgSrc = this.thumbList[i];
             }
         }
     }
