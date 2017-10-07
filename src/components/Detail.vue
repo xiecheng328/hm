@@ -11,7 +11,7 @@
                                  alt="">
                         </div>
                         <ul class="detail-thumb">
-                            <li v-for="(thumb, index) in thumbList" :class="{selected:isThumbSelected==index}" @click="thumbSelectHandler(index)" @mouseover="thumbSelectHandler(index)">
+                            <li :key="index" v-for="(thumb, index) in thumbList" :class="{selected:isThumbSelected==index}" @click="thumbSelectHandler(index)" @mouseover="thumbSelectHandler(index)">
                                 <img :src="thumb" alt="">
                             </li>
                         </ul>
@@ -73,8 +73,8 @@
                                 <strong>4.7</strong>
                             </div>
                             <ul class="classify clearfix">
-                                <li v-for="(classify,index) in classifyList" @click="classifyHandler(index)"
-                                    v-bind:class="{ active: isActive==index}">{{classify}}
+                                <li :key="index" v-for="(classify,index) in classifyList" @click="classifyHandler(index)"
+                                    :class="{ active: isActive==index}">{{classify}}
                                 </li>
                             </ul>
                         </div>
