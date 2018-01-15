@@ -35,17 +35,18 @@ export default {
 
             // this.$router.push('/list/' + this.keyword);
             // this.msg = this.$route.params.keyword;
-            Axios.get('static/product-data.json').then((res) => {
-                this.productData = res.data.productData;
+            Axios.get('http://136.56.35.44:7080/products/search?page=1'+ '&keyword=' + this.keyword).then((res) => {
+                this.productData = res.data;
+                console.log(this.productData);
 
                 for (var i = 0; i < this.productData.length; i++) {
                     var obj = {};
-                    obj.productId = this.productData[i].productId;
-                    obj.imgSrc = this.productData[i].imgSrc;
-                    obj.price = this.productData[i].price;
-                    obj.name = this.productData[i].name;
+                    obj.productId = this.productData[i]._id;
+                    // obj.imgSrc = this.productData[i].imgSrc;
+                    // obj.price = this.productData[i].price;
+                    obj.name = this.productData[i].product_name;
                     obj.store = this.productData[i].store;
-                    obj.city = this.productData[i].city;
+                    // obj.city = this.productData[i].city;
                     this.productlist.push(obj);
                 }
                 this.$store.dispatch('setProductList', this.productlist);

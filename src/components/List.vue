@@ -28,6 +28,7 @@
             </div>
             <!--<div class="col-lg-3 col-md-3 guess-list">guess</div>-->
         </div>
+        <page></page>
     </div>
 </template>
 
@@ -35,6 +36,7 @@
     // import Axios from 'axios'
     import Search from './Search'
     import Product from './Product'
+    import Page from './Page'
 
     export default {
         name: 'list',
@@ -46,7 +48,8 @@
         },
         components: {
             Product,
-            Search
+            Search,
+            Page
         },
         mounted(){
             // this.msg = this.$route.params.keyword;
