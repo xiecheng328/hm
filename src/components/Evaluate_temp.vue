@@ -1,10 +1,10 @@
 <template>
-    <li class="clearfix evaluate">
+    <li class="clearfix">
         <div class="master float-left">
             <div class="evaluate-buyer">
                 物流的速度很快，我一个小县城，昨天下的货，今天就到了。椅子安装非常方便，我一个人差不多十分钟就能按完成安装。椅子非常漂亮，价格非常实惠，只要98块钱，值的推荐购买。椅子的质量需要时间来鉴定，我先用着，会追加评价的。
             </div>
-            <!-- <ul class="evaluate-img clearfix">
+            <ul class="evaluate-img clearfix">
                 <li>
                     <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
                          alt="">
@@ -17,13 +17,13 @@
                     <img src="https://img.alicdn.com/bao/uploaded/i3/608709275/TB1pIlqawb.PuJjSZFpXXbuFpXa_!!0-item_pic.jpg_60x60q90.jpg"
                          alt="">
                 </li>
-            </ul> -->
+            </ul>
 
-            <!-- <div class="evaluate-seller">
+            <div class="evaluate-seller">
                 解释：多么焦急的等待就是为了看到现在的结果，亲的评价对小店来说是多么重要，它是对小店服务的肯定，更是对小店工作的默默支持，它不仅激发了小店追求更高标准的潜力，也是对小店最大的报酬，让小店感觉到一切的付出都是那么的值得，感谢亲的支持，相信小店会做的更好，因为有亲。也希望亲时刻记得有小店这样的一位期待者在期待亲的再次光临
-            </div> -->
+            </div>
         </div>
-        <!-- <div class="meta float-left">
+        <div class="meta float-left">
             <p>
                 <span>颜色分类：</span>白框黑网弓脚款
             </p>
@@ -36,7 +36,7 @@
         </div>
         <div class="author float-left">
             <span>h***萍</span>（匿名）
-        </div> -->
+        </div>
     </li>
 
 </template>
@@ -73,7 +73,7 @@
     }
 
     .master {
-        /* width: 100%; */
+        width: 600px;
         -ms-word-wrap: break-word;
         word-wrap: break-word;
         -ms-word-break: break-all;

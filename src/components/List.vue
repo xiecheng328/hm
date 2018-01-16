@@ -28,12 +28,12 @@
             </div>
             <!--<div class="col-lg-3 col-md-3 guess-list">guess</div>-->
         </div>
-        <page></page>
+        <page class="page"></page>
     </div>
 </template>
 
 <script>
-    // import Axios from 'axios'
+    import Axios from 'axios'
     import Search from './Search'
     import Product from './Product'
     import Page from './Page'
@@ -52,22 +52,22 @@
             Page
         },
         mounted(){
-            // this.msg = this.$route.params.keyword;
-            // Axios.get('static/product-data.json').then((res) => {
-            //     this.productData = res.data.productData;
+            this.msg = this.$route.params.keyword;
+            Axios.get('static/product-data.json').then((res) => {
+                this.productData = res.data.productData;
 
-            //     for (var i = 0; i < this.productData.length; i++) {
-            //         var obj = {};
-            //         obj.productId = this.productData[i].productId;
-            //         obj.imgSrc = this.productData[i].imgSrc;
-            //         obj.price = this.productData[i].price;
-            //         obj.name = this.productData[i].name;
-            //         obj.store = this.productData[i].store;
-            //         obj.city = this.productData[i].city;
-            //         this.productlist.push(obj);
-            //     }
-            //     this.$store.dispatch('setProductList', this.productlist);
-            // });
+                for (var i = 0; i < this.productData.length; i++) {
+                    var obj = {};
+                    obj.productId = this.productData[i].productId;
+                    obj.imgSrc = this.productData[i].imgSrc;
+                    obj.price = this.productData[i].price;
+                    obj.name = this.productData[i].name;
+                    obj.store = this.productData[i].store;
+                    obj.city = this.productData[i].city;
+                    this.productlist.push(obj);
+                }
+                this.$store.dispatch('setProductList', this.productlist);
+            });
 
 
         }
@@ -80,4 +80,9 @@
         border: 1px solid;
     }
 
+    .pagination{
+        float: right;
+    }
 
+
+</style>
